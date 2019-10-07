@@ -9,15 +9,16 @@ import { IDetails } from './models/weatherdetails.model';
 })
 export class AppComponent implements OnInit {
   weatherDetails:IDetails;
-  degreeCelsuis:number;
+  degreeCelsuis:string;
   title = 'cityweatherapp';
   constructor(private apiService: WeatherServiceService) { }
   ngOnInit() {
     this.apiService.getWeatherDetails().subscribe((data)=>{
       //console.log(data);
       this.weatherDetails = data;
-      this.degreeCelsuis = this.weatherDetails.main.temp - 273.15 ;
-      //console.log(this.weatherDetails.name);
+      console.log(this.weatherDetails.main.temp);
+      this.degreeCelsuis = (this.weatherDetails.main.temp - 273.15).toFixed(2) ;
+      console.log(this.degreeCelsuis);
     });
   }
 }
