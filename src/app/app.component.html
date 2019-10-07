@@ -1,3 +1,4 @@
+
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
@@ -293,9 +294,7 @@
       visibility: hidden;
     }
   }
-
-  
-.forecast-container {
+  .forecast-container {
   width: 100%;
   background: #323544;
   display: table;
@@ -303,7 +302,7 @@
   width: 100%;
   overflow: hidden;
   border-radius: 10px;
-  margin-top: -150px;
+ 
   margin-bottom: 50px; }
   .forecast-container .forecast {
     display: table-cell;
@@ -373,6 +372,197 @@
       .forecast-container .forecast .forecast-content small {
         font-size: 16px;
         font-size: 1.1428571429em; }
+        .find-location {
+  position: relative;
+  margin-bottom: 70px; }
+  .hero {
+  background-size: cover;
+  padding: 70px 0;
+  min-height: 350px; }
+  .find-location select {
+    width: 100%;
+    padding: 20px 50px 20px 20px;
+    background: #1e202b;
+    color: white; }
+  .find-location input[type="submit"] {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    padding: 0 40px; }
+
+    /* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+
+  background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 150ms infinite linear;
+  -moz-animation: spinner 150ms infinite linear;
+  -ms-animation: spinner 150ms infinite linear;
+  -o-animation: spinner 150ms infinite linear;
+  animation: spinner 150ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.error{
+			color: #D8000C;
+			background-color: #FFBABA;
+			background-image: url('https://i.imgur.com/GnyDvKN.png');
+    }
+    
+    .dropdownclass{
+      width: 300px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  transition: all .5s ease;
+  position: relative;
+  font-size: 14px;
+  color: #474747;
+  height: 100%;
+  
+  margin-right:10px;
+    }
+    .dropdownclass2{
+      width: 70px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  transition: all .5s ease;
+  position: relative;
+  font-size: 14px;
+  color: #474747;
+  height: 100%;
+  text-align: left;
+  margin-right:10px;
+    }
+    .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: blue;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 2px;
+}
+
+
 </style>
 
 <!-- Toolbar -->
@@ -380,134 +570,152 @@
   <img
     width="40"
     alt="Angular Logo"
-    src=""
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
   />
-  <span>Weather Forecast App</span>
+  <span>Welcome</span>
     <div class="spacer"></div>
-  
-</div>
+  <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
+    
+    <svg id="twitter-logo" height="24" data-name="Logo — FIXED" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: none;
+          }
 
+          .cls-2 {
+            fill: #ffffff;
+          }
+        </style>
+      </defs>
+      <rect class="cls-1" width="400" height="400" />
+      <path class="cls-2" d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"
+      />
+    </svg>
+    
+  </a>
+</div>
+<div *ngIf="isLoader" class="loading">Loading&#8230;</div>
 <div class="content" role="main">
 
-  <!-- Highlight Card -->
- 
+
 
   <!-- Resources -->
-  <h2>Weather Forcast</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h2>Enter Your City Name to view weather forecast</h2>
+  
+
   <div class="card-container">
-    <div class="hero">
-      <div class="container">
-        <form action="#" class="find-location">
-          <input type="text" placeholder="Find your location...">
-          <input type="submit" value="Find">
-        </form>
+      <form> 
+          
+     
+                <select id="CityName" class="dropdownclass" [(ngModel)] ="CityName" required>
+                    <option value="" disabled selected>Select city name</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Agra">Agra</option>
+                    <option value="Chennai">Chennai</option>
+                </select> 
+      
+         
+            <select name="cars" class="dropdownclass2" [(ngModel)] ="TempUnit">
+                <option value="Cel">Celsius</option>
+                <option value="Farh">Fahrenheit</option>
+                <option value="Kelvin">Kelvin</option>
+                
+              </select>
+  
+        <button type="submit"  name="submit" class="button" style="vertical-align:middle"  (click)="getWeatherByCityName()"><span>Go</span></button>
+      </form>
 
-      </div>
-    </div>
 
   </div>
 
-  
+  <!-- Next Steps -->
+  <h2>Weather Today</h2>
   
 
-<div class="forecast-table">
-  <div class="container">
-    <div class="forecast-container">
-      <div class="today forecast">
-        <div class="forecast-header">
-          <div class="day" >{{weatherDetails?.name}}</div>
-          <div class="date">6 Oct</div>
-        </div> <!-- .forecast-header -->
-        <div class="forecast-content">
-          <div class="location" style="color:white;">{{weatherDetails?.name}}</div>
-          <div class="degree">
-            <div class="num" style="font-size:30px;color:white;">{{degreeCelsuis}}<sup>o</sup>C</div>
-            <div class="forecast-icon">
-              <img src="../assets/icons/icon-1.svg" alt="" width=90>
-            </div>	
+  <input type="hidden" #selection>
+
+  <div class="card-container">
+      <div *ngIf="isDisplayReport" class="forecast-table">
+          <div class="container">
+            <div class="forecast-container">
+              <div class="today forecast">
+                <div class="forecast-header">
+                  <div class="day" >{{weatherDetails?.name}}</div>
+                  <div class="date">6 Oct</div>
+                </div> <!-- .forecast-header -->
+                <div class="forecast-content">
+                  <div class="location" style="color:white;">{{weatherDetails?.name}}</div>
+                  <div class="degree">
+                    <div *ngIf="isCelsius" class="num" style="font-size:60px;color:white;">{{degreeUnit}}<sup>o</sup>C</div>
+                    <div *ngIf="isKelvin" class="num" style="font-size:60px;color:white;">{{degreeUnit}}<sup>o</sup>K</div>
+                    <div *ngIf="isFarh" class="num" style="font-size:60px;color:white;">{{degreeUnit}}<sup>o</sup>F</div>
+                    <div class="forecast-icon">
+                      <img src="../assets/icons/icon-1.svg" alt="" width=90>
+                    </div>	
+                  </div>
+                 
+                  <span  style="color:white !important;"><img src="../assets/images/icon-wind.png" alt="">{{weatherDetails?.wind.speed}} Km/hr</span>
+                 
+                </div>
+              </div>
+              <div class="forecast">
+                <div class="forecast-header">
+                  <div class="day" style="color:white;">Humidity</div>
+                </div> <!-- .forecast-header -->
+                <div class="forecast-content">
+                 
+                  <div class="degree">{{weatherDetails?.main.humidity}}%</div>
+                  
+                </div>
+              </div>
+              <div class="forecast">
+                <div class="forecast-header">
+                  <div class="day" style="color:white;">Pressure</div>
+                </div> <!-- .forecast-header -->
+                <div class="forecast-content">
+                  
+                  <div class="degree">{{weatherDetails?.main.pressure}}mb</div>
+             
+                </div>
+              </div>
+              <div class="forecast">
+                <div class="forecast-header">
+                  <div class="day" style="color:white;">Min Temparature</div>
+                </div> <!-- .forecast-header -->
+                <div class="forecast-content">
+                
+                  <div *ngIf="isCelsius" class="degree">{{minDegreeCelsuis}}<sup>o</sup>C</div>
+                  <div *ngIf="isKelvin" class="degree">{{minDegreeCelsuis}}<sup>o</sup>K</div>
+                  <div *ngIf="isFarh" class="degree">{{minDegreeCelsuis}}<sup>o</sup>F</div>
+                 
+                </div>
+              </div>
+              <div class="forecast">
+                <div class="forecast-header">
+                  <div class="day" style="color:white;">Max Temparature</div>
+                </div> <!-- .forecast-header -->
+                <div class="forecast-content">
+                 
+                  <div *ngIf="isCelsius" class="degree">{{maxDegreeCelsuis}}<sup>o</sup>C</div>
+                  <div *ngIf="isKelvin" class="degree">{{maxDegreeCelsuis}}<sup>o</sup>K</div>
+                  <div *ngIf="isFarh" class="degree">{{maxDegreeCelsuis}}<sup>o</sup>F</div>
+                 
+                </div>
+              </div>
+             
+            </div>
           </div>
-          <span><img src="images/icon-umberella.png" alt=""></span>
-          <span  style="color:white !important;"><img src="images/icon-wind.png" alt="">{{weatherDetails?.wind.speed}} Km/hr</span>
-          <span><img src="images/icon-compass.png" alt="">East</span>
         </div>
-      </div>
-      <div class="forecast">
-        <div class="forecast-header">
-          <div class="day">Tuesday</div>
-        </div> <!-- .forecast-header -->
-        <div class="forecast-content">
-          <div class="forecast-icon">
-            <img src="../assets/icons/icon-3.svg" alt="" width=48>
+        <div *ngIf="!isDisplayReport">
+          
+            <div class="alert alert-danger">
+                <h2 style="color:red;"><strong>Error!</strong> {{errorMessage}}</h2>
+              </div>
           </div>
-          <div class="degree">23<sup>o</sup>C</div>
-          <small>18<sup>o</sup></small>
-        </div>
-      </div>
-      <div class="forecast">
-        <div class="forecast-header">
-          <div class="day">Wednesday</div>
-        </div> <!-- .forecast-header -->
-        <div class="forecast-content">
-          <div class="forecast-icon">
-            <img src="../assets/icons/icon-5.svg" alt="" width=48>
-          </div>
-          <div class="degree">23<sup>o</sup>C</div>
-          <small>18<sup>o</sup></small>
-        </div>
-      </div>
-      <div class="forecast">
-        <div class="forecast-header">
-          <div class="day">Thursday</div>
-        </div> <!-- .forecast-header -->
-        <div class="forecast-content">
-          <div class="forecast-icon">
-            <img src="images/icons/icon-7.svg" alt="" width=48>
-          </div>
-          <div class="degree">23<sup>o</sup>C</div>
-          <small>18<sup>o</sup></small>
-        </div>
-      </div>
-      <div class="forecast">
-        <div class="forecast-header">
-          <div class="day">Friday</div>
-        </div> <!-- .forecast-header -->
-        <div class="forecast-content">
-          <div class="forecast-icon">
-            <img src="../assets/icons/icon-12.svg" alt="" width=48>
-          </div>
-          <div class="degree">23<sup>o</sup>C</div>
-          <small>18<sup>o</sup></small>
-        </div>
-      </div>
-      <div class="forecast">
-        <div class="forecast-header">
-          <div class="day">Saturday</div>
-        </div> <!-- .forecast-header -->
-        <div class="forecast-content">
-          <div class="forecast-icon">
-            <img src="images/icons/icon-13.svg" alt="" width=48>
-          </div>
-          <div class="degree">23<sup>o</sup>C</div>
-          <small>18<sup>o</sup></small>
-        </div>
-      </div>
-      <div class="forecast">
-        <div class="forecast-header">
-          <div class="day">Sunday</div>
-        </div> <!-- .forecast-header -->
-        <div class="forecast-content">
-          <div class="forecast-icon">
-            <img src="images/icons/icon-14.svg" alt="" width=48>
-          </div>
-          <div class="degree">23<sup>o</sup>C</div>
-          <small>18<sup>o</sup></small>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
-  
+
 
   <!-- Footer -->
   <footer>
@@ -527,5 +735,4 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 
