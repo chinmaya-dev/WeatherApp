@@ -1,8 +1,6 @@
-
-
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  
+
   <span>Weather App</span>
 
 </div>
@@ -11,134 +9,190 @@
 
 
 
-  
-  <h2>Enter Your City Name to view weather forecast</h2>
-  
-<!-- Select city form -->
-  <div class="card-container">
-      <form> 
-          
-     
-                <select id="CityName" class="dropdownclass" [(ngModel)] ="CityName" [ngModelOptions]="{standalone: true}" (change)="disableButton($event.target.value)" required>
-                    <option value="">Select city name</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Agra">Agra</option>
-                    <option value="Chennai">Chennai</option>
-                </select> 
-                
-            <select name="cars" class="dropdownclass2" [(ngModel)] ="TempUnit" [ngModelOptions]="{standalone: true}">
-                <option value="">Select Temperature Unit</option>
-                <option value="Cel">Celsius</option>
-                <option value="Farh">Fahrenheit</option>
-                <option value="Kelvin">Kelvin</option>
-                
-              </select>
-  
-        <button type="submit"  name="submit" class="button" style="vertical-align:middle"  (click)="getWeatherByCityName()" [disabled]="isDisableButton"><span>Go</span></button>
-      </form>
 
-     
+  <h2>Enter Your City Name to view weather forecast</h2>
+
+  <!-- Select city form -->
+  <div class="card-container">
+    <form>
+
+
+      <select id="CityName" class="dropdownclass" [(ngModel)]="CityName" [ngModelOptions]="{standalone: true}"
+        (change)="disableButton($event.target.value)" required>
+        <option value="">Select city name</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Agra">Agra</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Adilabad">Adilabad</option>
+        <option value="Agra">Agra </option>
+        <option value="Ahmedabad">Ahmedabad </option>
+        <option value="Ahmednagar">Ahmednagar </option>
+        <option value="Aizawl">Aizawl </option>
+        <option value="Mohali">Mohali </option>
+        <option value="Ajmer"> Ajmer </option>
+        <option value="Akola"> Akola </option>
+        <option value="Alappuzha">Alappuzha </option>
+        <option value="Aligarh">Aligarh </option>
+        <option value="Alirajpur">Alirajpur </option>
+        <option value="Allahabad">Allahabad </option>
+        <option value="Almora">Almora </option>
+        <option value="Alwar"> Alwar </option>
+        <option value="Ambala">Ambala </option>
+
+        <option value="Amritsar">Amritsar </option>
+
+        <option value="Angul"> Angul </option>
+
+        <option value="Azamgarh">Azamgarh </option>
+        <option value="Badgam">Badgam </option>
+        <option value="Bagalkot"> Bagalkot </option>
+        <option value="Bageshwar">Bageshwar </option>
+        <option value="Bagpat">Bagpat </option>
+        <option value="Bahraich">Bahraich </option>
+        <option value="Baksa">Baksa </option>
+        <option value="Balaghat">Balaghat </option>
+        <option value="Balangir">Balangir </option>
+        <option value="Balasore"> Balasore </option>
+        <option value="Begusarai">Begusarai </option>
+        <option value="Belgaum">Belgaum </option>
+
+        <option value="Bongaigaon">Bongaigaon </option>
+        <option value="Boudh">Boudh </option>
+        <option value="Budaun">Budaun </option>
+        <option value="Bulandshahr"> Bulandshahr </option>
+        <option value="Buldhana"> Buldhana </option>
+        <option value="Bundi">Bundi </option>
+        <option value="Burhanpur">Burhanpur </option>
+        <option value="Buxar">Buxar </option>
+        <option value="Cachar"> Cachar </option>
+        <option value="Chamarajnagar">Chamarajnagar </option>
+        <option value="Chamba">Chamba </option>
+        <option value="Chamoli">Chamoli </option>
+        <option value="Champawat">Champawat </option>
+        <option value="Champhai">Champhai </option>
+        <option value="Chandauli">Chandauli </option>
+        <option value="Chandel">Chandel </option>
+        <option value="Chandigarh">Chandigarh </option>
+        <option value="Chandrapur">Chandrapur </option>
+        <option value="Changlang">Changlang </option>
+      </select>
+
+      <select name="cars" class="dropdownclass2" [(ngModel)]="TempUnit" [ngModelOptions]="{standalone: true}">
+        <option value="">Select Temperature Unit</option>
+        <option value="Cel">Celsius</option>
+        <option value="Farh">Fahrenheit</option>
+        <option value="Kelvin">Kelvin</option>
+
+      </select>
+
+      <button type="submit" name="submit" class="button" style="vertical-align:middle" (click)="getWeatherByCityName()"
+        [disabled]="isDisableButton"><span>Go</span></button>
+    </form>
+
+
   </div>
   <div *ngIf="isShowValidationMessage" style="color:red;">
-      <h5>Please select a city name to countinue</h5>
-    </div>
+    <h5>Please select a city name to countinue</h5>
+  </div>
   <!-- Weather report wizard -->
   <h2>Weather Today</h2>
-  
+
 
   <input type="hidden" #selection>
 
   <div class="card-container">
-      <div *ngIf="isDisplayReport" class="forecast-table">
-          <div class="container">
-            <div class="forecast-container">
-              <div class="today forecast">
-                <div class="forecast-header">
-                  <div class="day" >{{weatherDetails?.name}}</div>
-                  <div class="date">6 Oct</div>
-                </div> <!-- .forecast-header -->
-                <div class="forecast-content">
-                  <div class="location" style="color:white;">{{weatherDetails?.name}}</div>
-                  <div class="degree">
-                    <div *ngIf="isCelsius" class="num" style="font-size:60px;color:white;">{{degreeUnit}}<sup>o</sup>C</div>
-                    <div *ngIf="isKelvin" class="num" style="font-size:60px;color:white;">{{degreeUnit}}<sup>o</sup>K</div>
-                    <div *ngIf="isFarh" class="num" style="font-size:60px;color:white;">{{degreeUnit}}<sup>o</sup>F</div>
-                    <div class="forecast-icon">
-                      <img src="../assets/icons/icon-1.svg" alt="" width=90>
-                    </div>	
-                  </div>
-                 
-                  <span  style="color:white !important;"><img src="../assets/images/icon-wind.png" alt="">{{weatherDetails?.wind.speed}} Km/hr</span>
-                 
+    <div *ngIf="isDisplayReport" class="forecast-table">
+      <div class="container">
+        <div class="forecast-container">
+          <div class="today forecast">
+            <div class="forecast-header">
+              <div class="day">{{weatherDetails?.name}}</div>
+              <div class="date">6 Oct</div>
+            </div> <!-- .forecast-header -->
+            <div class="forecast-content">
+              <div class="location" style="color:white;">{{weatherDetails?.name}}</div>
+              <div class="degree">
+                <div *ngIf="isCelsius" class="num" style="font-size:60px;color:white;">{{degreeUnit}}<sup>o</sup>C</div>
+                <div *ngIf="isKelvin" class="num" style="font-size:60px;color:white;">{{degreeUnit}}<sup>o</sup>K</div>
+                <div *ngIf="isFarh" class="num" style="font-size:60px;color:white;">{{degreeUnit}}<sup>o</sup>F</div>
+                <div class="forecast-icon">
+                  <img src="../assets/icons/icon-1.svg" alt="" width=90>
                 </div>
               </div>
-              <div class="forecast">
-                <div class="forecast-header">
-                  <div class="day" style="color:white;">Humidity</div>
-                </div> <!-- .forecast-header -->
-                <div class="forecast-content">
-                 
-                  <div class="degree">{{weatherDetails?.main.humidity}}%</div>
-                  
-                </div>
-              </div>
-              <div class="forecast">
-                <div class="forecast-header">
-                  <div class="day" style="color:white;">Pressure</div>
-                </div> <!-- .forecast-header -->
-                <div class="forecast-content">
-                  
-                  <div class="degree">{{weatherDetails?.main.pressure}}mb</div>
-             
-                </div>
-              </div>
-              <div class="forecast">
-                <div class="forecast-header">
-                  <div class="day" style="color:white;">Min Temparature</div>
-                </div> <!-- .forecast-header -->
-                <div class="forecast-content">
-                
-                  <div *ngIf="isCelsius" class="degree">{{minDegreeCelsuis}}<sup>o</sup>C</div>
-                  <div *ngIf="isKelvin" class="degree">{{minDegreeCelsuis}}<sup>o</sup>K</div>
-                  <div *ngIf="isFarh" class="degree">{{minDegreeCelsuis}}<sup>o</sup>F</div>
-                 
-                </div>
-              </div>
-              <div class="forecast">
-                <div class="forecast-header">
-                  <div class="day" style="color:white;">Max Temparature</div>
-                </div> <!-- .forecast-header -->
-                <div class="forecast-content">
-                 
-                  <div *ngIf="isCelsius" class="degree">{{maxDegreeCelsuis}}<sup>o</sup>C</div>
-                  <div *ngIf="isKelvin" class="degree">{{maxDegreeCelsuis}}<sup>o</sup>K</div>
-                  <div *ngIf="isFarh" class="degree">{{maxDegreeCelsuis}}<sup>o</sup>F</div>
-                 
-                </div>
-              </div>
-             
+
+              <span style="color:white !important;"><img src="../assets/images/icon-wind.png"
+                  alt="">{{weatherDetails?.wind.speed}} Km/hr</span>
+
             </div>
           </div>
-        </div>
-        <div *ngIf="!isDisplayReport">
-          
-            <div class="alert alert-danger">
-                <h2 style="color:red;"><strong>Error!</strong> {{errorMessage}}</h2>
-              </div>
+          <div class="forecast">
+            <div class="forecast-header">
+              <div class="day" style="color:white;">Humidity</div>
+            </div> <!-- .forecast-header -->
+            <div class="forecast-content">
+
+              <div class="degree">{{weatherDetails?.main.humidity}}%</div>
+
+            </div>
           </div>
+          <div class="forecast">
+            <div class="forecast-header">
+              <div class="day" style="color:white;">Pressure</div>
+            </div> <!-- .forecast-header -->
+            <div class="forecast-content">
+
+              <div class="degree">{{weatherDetails?.main.pressure}}mb</div>
+
+            </div>
+          </div>
+          <div class="forecast">
+            <div class="forecast-header">
+              <div class="day" style="color:white;">Min Temparature</div>
+            </div> <!-- .forecast-header -->
+            <div class="forecast-content">
+
+              <div *ngIf="isCelsius" class="degree">{{minDegreeCelsuis}}<sup>o</sup>C</div>
+              <div *ngIf="isKelvin" class="degree">{{minDegreeCelsuis}}<sup>o</sup>K</div>
+              <div *ngIf="isFarh" class="degree">{{minDegreeCelsuis}}<sup>o</sup>F</div>
+
+            </div>
+          </div>
+          <div class="forecast">
+            <div class="forecast-header">
+              <div class="day" style="color:white;">Max Temparature</div>
+            </div> <!-- .forecast-header -->
+            <div class="forecast-content">
+
+              <div *ngIf="isCelsius" class="degree">{{maxDegreeCelsuis}}<sup>o</sup>C</div>
+              <div *ngIf="isKelvin" class="degree">{{maxDegreeCelsuis}}<sup>o</sup>K</div>
+              <div *ngIf="isFarh" class="degree">{{maxDegreeCelsuis}}<sup>o</sup>F</div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!isDisplayReport">
+
+      <div class="alert alert-danger">
+        <h2 style="color:red;"><strong>Error!</strong> {{errorMessage}}</h2>
+      </div>
+    </div>
   </div>
 
 
   <!-- Footer -->
   <footer>
-      
+
   </footer>
 
-  <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
-    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+  <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677"
+    viewBox="0 0 2611.084 485.677">
+    <path id="Path_39" data-name="Path 39"
+      d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
+      transform="translate(142.69 -634.312)" fill="#eee" />
   </svg>
 
 </div>
-
-
